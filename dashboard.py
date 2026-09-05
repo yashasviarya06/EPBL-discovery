@@ -19,10 +19,16 @@ st.set_page_config(
 # LOAD DATA AND MODEL
 # ============================================================
 
-df = pd.read_csv("data/opportunity_signals.csv")
+BASE_DIR = Path(__file__).resolve().parent
 
-model = joblib.load("lead_model.pkl")
-vectorizer = joblib.load("tfidf_vectorizer.pkl")
+DATA_PATH = BASE_DIR / "data" / "opportunity_signals.csv"
+MODEL_PATH = BASE_DIR / "lead_model.pkl"
+VECTORIZER_PATH = BASE_DIR / "tfidf_vectorizer.pkl"
+
+df = pd.read_csv(DATA_PATH)
+
+model = joblib.load(MODEL_PATH)
+vectorizer = joblib.load(VECTORIZER_PATH)
 
 
 # ============================================================
